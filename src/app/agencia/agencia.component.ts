@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AgenciaService } from '../agencia-service';
 import { Agencia } from '../agencia.model';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-agencia',
   templateUrl: './agencia.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class AgenciaComponent implements OnInit 
 {
