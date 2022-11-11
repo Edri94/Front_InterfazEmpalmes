@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AgenciaService } from '../agencia-service';
 import { Agencia } from '../agencia.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import * as icono from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-agencia',
@@ -11,6 +12,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AgenciaComponent implements OnInit 
 {
+
+  icono = icono;
 
   agencias: Agencia[] = [];
   

@@ -1,14 +1,29 @@
-<div class="box">
-    <div class="item" *ngFor="let agencia of agencias">       
-        <ul>
-            <li>
-                <span class="badge badge-primary" style="color: black;"> {{agencia.descripcionAgencia}}</span>
-            </li>
-        </ul>
-       
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Agencia</th>
+                <th scope="col">Prefijo</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Borrar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let agencia of agencias">
+                <th scope="row">{{agencia.agencia}}</th>
+                <td>{{agencia.descripcionAgencia}}</td>
+                <td>{{agencia.prefijoAgencia}}</td>
+                <td><fa-icon [icon]="icono.faPen"></fa-icon></td>
+                <td><fa-icon [icon]="icono.faEraser"></fa-icon></td>
+              </tr>
+            </tbody>
+          </table>
     </div>
-    <div class="alert alert-primary" role="alert">
-        A simple primary alert—check it out!
+</div>
+<div class="row">
+    <div class="col-12">
+        <button class="btn btn-primary"><fa-icon [icon]="icono.faAddressBook"></fa-icon> Agregar Nueva Agencia  </button>
     </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
 </div>

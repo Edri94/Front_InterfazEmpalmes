@@ -8,21 +8,28 @@ import { NgbModule} from  '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DataService } from './data-service';
+import { InicioComponent } from './inicio/inicio.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AgenciaComponent
+    AgenciaComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [AgenciaService, DataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[
+    AppComponent
+  ]
 })
 export class AppModule { }
