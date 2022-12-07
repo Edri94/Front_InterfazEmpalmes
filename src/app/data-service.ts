@@ -18,4 +18,11 @@ export class DataService
         console.log(this.httpClient.get<Agencia[]>(this.urlBase));
         return this.httpClient.get<Agencia[]>(this.urlBase);
     }
+
+    agregarAgencia(agencia: Agencia)
+    {
+        let algo = this.httpClient.post<Agencia>(this.urlBase, agencia);
+        console.log(algo);
+        return algo;
+    }
 }

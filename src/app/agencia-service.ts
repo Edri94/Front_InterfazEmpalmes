@@ -25,4 +25,16 @@ export class AgenciaService
     {
         return this.ds.cargarAgencias();
     }
+
+    agregarAgencia(agencia: Agencia)
+    {
+        console.log(" agencia a gregar: " + agencia.descripcionAgencia);
+        this.ds.agregarAgencia(agencia)
+        .subscribe(
+            (a : Agencia) => {
+                console.log("se agrega al arreglo la agencia recien insertada suscriber: " + a.agencia);
+                this.agencias.push(a);
+            }
+        );
+    }
 }

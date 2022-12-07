@@ -15,15 +15,55 @@
                 <th scope="row">{{agencia.agencia}}</th>
                 <td>{{agencia.descripcionAgencia}}</td>
                 <td>{{agencia.prefijoAgencia}}</td>
-                <td><fa-icon [icon]="icono.faPen"></fa-icon></td>
+                <td>
+                  <button class="link" (click)="open(mymodal, agencia)"> <fa-icon [icon]="icono.faPen"></fa-icon></button>
+                  <!-- <a [routerLink]="['modificar', agencia.agencia]">
+                    <fa-icon [icon]="icono.faPen"></fa-icon>
+                  </a>              -->
+                </td>
                 <td><fa-icon [icon]="icono.faEraser"></fa-icon></td>
               </tr>
             </tbody>
           </table>
     </div>
 </div>
+
+<!-- Boton para abrir modal -->
 <div class="row">
     <div class="col-12">
-        <button class="btn btn-primary"><fa-icon [icon]="icono.faAddressBook"></fa-icon> Agregar Nueva Agencia  </button>
+      <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)"> <fa-icon [icon]="icono.faAddressBook" ></fa-icon>&nbsp; Agregar Nueva Agencia</button>
     </div>
 </div>
+
+
+
+<!-- Verntana Modal
+Nota: ng-template es ocmo la etiqueta div , solo que con este funcionan mejor las directivas como ngIf , ngFor... etc -->
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <input type="hidden" name="agencia" [(ngModel)]="descripcionAgencia" />
+        <label for="descripcionAgencia">Nombre Agencia</label>
+        <input type="text" class="form-control" name="descripcionAgencia"  [(ngModel)]="descripcionAgencia" required placeholder="Descripcion Agencia">
+        <small id="descripcionAgencia-help" class="form-text text-muted">Escribe un nombre para la nueva agencia</small>
+      </div>
+      <div class="form-group">
+        <label for="prefijoAgencia">Prefijo Agencia</label>
+        <input type="text" class="form-control" name="prefijoAgencia" [(ngModel)]="prefijoAgencia"  placeholder="Prefijo Agencia">
+        <small id="descripcionAgencia-help" class="form-text text-muted">Escribe un prefijo para la nueva agencia</small>
+      </div>     
+      <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+  </div>
+</ng-template>
+<router-outlet></router-outlet>

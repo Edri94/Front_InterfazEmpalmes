@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { DataService } from './data-service';
 import { InicioComponent } from './inicio/inicio.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormularioAgenciasComponent } from './formulario-agencias/formulario-agencias.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,14 +19,16 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   declarations: [
     AppComponent,
     AgenciaComponent,
-    InicioComponent
+    InicioComponent,
+    FormularioAgenciasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule, 
+    FormsModule
   ],
   providers: [AgenciaService, DataService],
   bootstrap: [AppComponent],
